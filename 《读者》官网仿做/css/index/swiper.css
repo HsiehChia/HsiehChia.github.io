@@ -1,0 +1,63 @@
+.swipershow {
+    margin-top: 70px;
+    width: 1200px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+}
+.swiper_item img {
+    width: 100%;
+    height: 600px;
+}
+.navigation {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.navigation_bar {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 50px;
+    height: 20px;
+    /* border: 2px solid #ffffff; */
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 6px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.navigation_bar:hover {
+    /* border-color: #1faf88; */
+    border: 3px solid #1faf88;
+    background-color: #ffffff;
+}
+input[name="rad"] {
+    position: absolute;
+    visibility: hidden;
+}
+.swipers {
+    width: 400%;
+    height: 100%;
+    display: flex;
+}
+.swiper_item {
+    width: 25%;
+    transition: all 0.6s;
+}
+.swiper_item img {
+    width: 100%;
+    height: 100%;
+}
+#rad1:checked ~ .s1{
+    margin-left: 0;
+}
+#rad2:checked ~ .s1{
+    margin-left: -25%;
+}
+#rad3:checked ~ .s1{
+    margin-left: -50%;
+}
+#rad4:checked ~ .s1{
+    margin-left: -75%;
+}

@@ -1,0 +1,83 @@
+.floatbar {
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+}
+.floatbar_item {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    position: relative;
+    border: 1px solid #dddddd;
+    margin-bottom: 20px;
+}
+.floatbar_item_nothov {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.floatbar_item_hov {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 50px;
+    height: 50px;
+}
+.floatbar_item_tdcode {
+    position: absolute;
+    display: none;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 120px;
+    background: url(../../img/index/floatbar_tdcodebg.png) no-repeat 0 0;
+    background-size: contain;
+}
+.floatbar_item_tdcode1 {
+    top: 60px;
+    right: 30px;
+    background: url(../../img/index/floatbar_tdcodebg1.png) no-repeat 0 0;
+}
+.floatbar_item_tdcode1 span {
+    top: 12px !important;
+    right: 10px;
+}
+.floatbar_item_tdcode img {
+    position: absolute;
+    top: 20px;
+    left: 28px;
+    width: 60px;
+    height: 60px;
+}
+.floatbar_item_tdcode span {
+    display: inline-block;
+    position: absolute;
+    bottom: 18px;
+    height: 20px;
+    width: 120px;
+    font-size: 12px;
+    color: #323c47;
+    text-align: center;
+}
+.floatbar_item:hover {
+    cursor: pointer;
+}
+.floatbar_item:hover .floatbar_item_hov,
+.floatbar_item:hover .floatbar_item_tdcode{
+    display: inline-block;
+}
+.floatbar_item_backtopbg {
+    width: 50px;
+    height: 50px;
+}
+.floatbar_item_backtop {
+    display: inline-block;
+    font-size: 30px;
+    color: #999999;
+    margin: 10px;
+}
+.floatbar_backtop {
+    display: none;
+}
