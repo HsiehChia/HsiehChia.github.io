@@ -1,0 +1,36 @@
+/* start = 顶部导航栏 */
+.navbar {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    z-index: 5;
+}
+.navbar_logo {
+    width: 125px;
+    height: 35px;
+    margin-top: 17.5px;
+    /* background-color: yellow; */
+}
+.navbar_logo img{
+    width: 125px;
+    height: 35px;
+    /* background-color: yellow; */
+}
+.navbar_list {
+    height: 35px;
+    margin-top: 17.5px;
+    /* background-color: rgb(60, 223, 60); */
+}
+.navbar_list li {
+    font-size: 14px;
+    line-height: 35px;
+    padding: 0 35px;
+    display: inline-block;
+}
+.navbar_list li:hover {
+    border-bottom: 3px solid #1faf88;
+}
+/* end = 顶部导航栏 */

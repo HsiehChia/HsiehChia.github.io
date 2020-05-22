@@ -1,0 +1,335 @@
+/* start = 顶部导航栏 */
+.navbar {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    z-index: 100;
+}
+
+.navbar_logo {
+    width: 125px;
+    height: 35px;
+    margin-top: 17.5px;
+    /* background-color: yellow; */
+}
+.navbar_logo img{
+    width: 125px;
+    height: 35px;
+    /* background-color: yellow; */
+}
+.navbar_list {
+    height: 35px;
+    margin-top: 17.5px;
+    /* background-color: rgb(60, 223, 60); */
+}
+.navbar_list li {
+    font-size: 14px;
+    line-height: 35px;
+    padding: 0 35px;
+    display: inline-block;
+}
+.navbar_list li:hover {
+    border-bottom: 3px solid #1faf88;
+}
+/* end = 顶部导航栏 */
+
+/* magazine_in */
+
+div{
+    display: block;
+}
+
+
+
+/* 页面主体 */
+.wapper{
+    padding-top: 98px;
+}
+
+
+.wapper .wapper-top{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+/* 导航栏 */
+.wapper .wapper-top .navigation{
+    font-size: 14px;
+    color: #939eab;
+    line-height: 27px;
+    width: 100%;
+    /* 设置内边距 （下） */
+    padding-bottom: 22px;
+    border-bottom: 1px solid #f0f3f4;
+}
+
+.wapper .wapper-top .navigation span{
+    font-size: 14px;
+    color: #939eab;
+    /* 设置文本对齐 左对齐 */
+    text-align: left;
+    line-height: 27px;
+}
+
+.wapper .wapper-top .magazine-details{
+    width: 1200px;
+    height: 367px;
+    padding: 30px;
+    /* IE盒子 指定宽度和高度 包含padding和border 不会撑大盒子 */
+    box-sizing: border-box;
+    background: #fcfcfc;
+    /* 弹性盒子 */
+    display: flex;
+    /* 额外空间平均分配 */
+    -webkit-box-pack: justify;
+    /* 设置主轴上的对齐方式 两端对齐*/
+    justify-content: space-between;
+    color: #333;
+}
+
+.wapper .wapper-top .magazine-details img{
+    width: 220px;
+    height: 307px;
+    /* 添加阴影 */
+    box-shadow: 0 4px 12px 0 rgba(51, 51, 51, 0.1);
+    display: block;
+}
+
+
+.wapper .wapper-top .magazine-details details{
+    /* width: 870px; */
+    height: 307px;
+    /* display: block; */
+
+}
+
+.wapper .wapper-top .magazine-details .details h4{
+    font-size: 24px;
+    color: #323c47;
+    /* 设置字符间距 字符间没有额外空间 */
+    letter-spacing: 0;
+    line-height: 27px;
+    /* 设置外边框 （上） */
+    margin-top: 20px;
+}
+
+h1, h2, h3, h4, h5, p {
+    margin: 0;
+    /* 字体粗细 */
+    font-weight: 400;
+}
+
+.wapper .wapper-top .magazine-details .details h5{
+    margin-top: 40px;
+    font-size: 14px;
+    color: #6a7c92;
+    letter-spacing: 0;
+    /* 设置文本对齐方式 两端对齐*/
+    text-align: justify;
+    line-height: 24px;
+}
+
+.wapper .wapper-top .magazine-details .details div{
+    font-size: 14px;
+    color: #6a7c92;
+    letter-spacing: 0;
+    /* 设置文本对齐方式 两端对齐*/
+    text-align: justify;
+    line-height: 24px;
+    /* 段落缩进 */
+    text-indent: 30px;
+    margin-top: 30px;
+    height: 96px; 
+    /* 外边距塌陷 */
+    overflow: hidden;
+    /*显示省略符号来代表被修剪的文本。*/
+    text-overflow: ellipsis;
+}
+
+.wapper .wapper-top .magazine-details .details p{
+    font-size: 14px;
+    color: #6a7c92;
+    letter-spacing: 0;
+    text-align: justify;
+    line-height: 24px;
+    text-indent: 30px;
+}
+
+/* 杂志目录 */
+.wapper .magazine-catalogue{
+    /* width: 1349px;
+    height: 1869px; */
+    /* 文本居中对齐 */
+    text-align: center;
+    /* display: flex; */
+}
+
+.wapper .magazine-catalogue .magazine-title{
+  
+    padding-top: 40px;
+
+}
+
+.wapper .magazine-catalogue .magazine-title h4{
+    font-size: 40px;
+    color: #31475e;
+    letter-spacing: .62px;
+    line-height: 60px;
+    /* 相对定位 */
+    position: relative;
+    /* 下移35px */
+    top: 35px;
+}
+
+.wapper .magazine-catalogue .magazine-title h5{
+    font-size: 50px;
+    color: #6a7c92;
+    letter-spacing: 10px;
+    line-height: 60px;
+    /* 设置不透明度 */
+    opacity: .1;
+    margin-bottom: 10px;
+}
+
+/* 目录主体 */
+.wapper .magazine-catalogue .magazine-main{
+    padding-top: 1px;
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+    /* 外边距塌陷 */
+    overflow: hidden;
+}
+
+/* 左侧 */
+.wapper .magazine-catalogue .magazine-main .cascade-left{
+    width: 550px;
+    /* 左浮动 */
+    float: left;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* 小标题 */
+.wapper .magazine-catalogue .magazine-main .title-total{
+    height: 50px;
+    position: relative;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+/* 标题文本 */
+.wapper .magazine-catalogue .magazine-main .title-total .title{
+    background: #fff;
+    /* 盒子阴影 */
+    box-shadow: 0 4px 12px 0 rgba(51,51,51,.1);
+    line-height: 50px;
+    position: relative;
+    z-index: 1;
+    width: 147px;
+    height: 50px;
+    font-size: 20px;
+    color: #31475e;
+    letter-spacing: 0;
+    left: 20px;
+}
+
+/* 标题背景 */
+.wapper .magazine-catalogue .magazine-main .title-total .bg{
+    height: 30px;
+    width: 100%;
+    background: #fafbfc;
+    /* 绝对定位 */
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+/* 文章 */
+.wapper .magazine-catalogue .magazine-main .article{
+    margin-left: 20px;
+    font-size: 14px;
+    color: #6a7c92;
+    letter-spacing: 0;
+    line-height: 27px;
+}
+
+/* 文章标题和作者 */
+.wapper .magazine-catalogue .magazine-main .article .article-for{
+    /* 弹性盒子 */
+    display: flex;
+    padding-top: 10px;
+    /* 两端对齐 */
+    justify-content: space-between;
+}
+
+.wapper .magazine-catalogue .magazine-main .article .article-for .article-free{
+    /* 鼠标光标显示为一只手 */
+    cursor: pointer;
+}
+
+/* 试读 */
+.wapper .magazine-catalogue .magazine-main .article .article-for .article-free span{
+    display: inline-block;
+    width: 34px;
+    height: 18px;
+    border: 1px solid #1faf88;
+    /* 圆角边框 */
+    border-radius: 3px;
+    font-size: 12px;
+    color: #1faf88;
+    letter-spacing: 0;
+    margin-left: 20px;
+    line-height: 18px;
+    /* 鼠标光标显示为一只手 */
+    cursor: pointer;
+}
+
+.wapper .magazine-catalogue .magazine-main .cascade-right{
+    width: 550px;
+    /* 右浮动 */
+    float: right;
+}
+
+/* 页面底端 */
+.footer{
+    height: 60px;
+    background: #f7f7f7;
+    text-align: center;
+    line-height: 60px;
+    width: 100%;
+}
+
+.footer p{
+    font-size: 12px;
+    color: #d6d6d6;
+    letter-spacing: 0;
+}
+
+.footer p a{
+    color: #d6d6d6;
+}
+
+a {
+    text-decoration: none;
+    border: 0 none;
+    /* 元素周围轮廓 */
+    outline: 0 none;
+}
+
+div{
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,128 @@
+.navbar_list li:nth-child(4) {
+    border-bottom: 3px solid #1faf88;
+}
+
+/* 写通用样式 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li{
+    list-style: none;
+}
+
+.about{
+    width: 100%;
+    margin-top: 70px;
+}
+
+.about_bg{
+    
+    background: url(../img/about/about_bg.png) no-repeat 50%;
+    height: 390px;
+}
+
+.about_bottom{
+    width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 70px
+}
+
+.content{
+    height: 490px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 55px 100px;
+    margin-top: -170px;
+    background: #fff;
+    -webkit-box-shadow: 0 8px 20px 0 hsla(0, 0%, 60%, .2);
+    box-shadow: 0 8px 20px 0 hsla(0, 0%, 60%, .2);
+    border-radius: 3px;
+    position: relative;
+    z-index: 1
+}
+
+.content p{
+    font-size: 14px;
+    color: #6a7c92;
+    letter-spacing: 0;
+    text-align: justify;
+    line-height: 24px;
+    margin-bottom: 25px
+}
+
+.contact_us{
+    text-align: center;
+    margin-top: 60px
+}
+
+.contact_us>h1{
+    font-family: PingFangSC-Regular;
+    font-size: 40px;
+    color: #31475e;
+    letter-spacing: .62px;
+    line-height: 60px;
+    position: relative;
+    top: 30px
+}
+
+.contact_us>h2{
+    opacity: .1;
+    font-family: PingFangSC-Regular;
+    font-size: 50px;
+    color: #6a7c92;
+    letter-spacing: 10px;
+    line-height: 60px
+}
+
+.about_bottom ul{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 150px;
+    margin-top: 60px
+}
+
+.about_bottom ul li h5{
+    font-size: 16px;
+    color: #31475e;
+    letter-spacing: 0;
+    line-height: 26px;
+    margin-bottom: 20px
+}
+
+.about_bottom ul li p{
+    font-family: Roboto-Regular;
+    font-size: 14px;
+    color: #6a7c92;
+    letter-spacing: 0;
+    line-height: 24px
+}
+
+.footer{
+    height: 60px;
+    background: #f7f7f7;
+    text-align: center;
+    line-height: 60px;
+}
+
+.footer p{
+    font-size: 12px;
+    color: #d6d6d6;
+    
+}
+
+.footer a{
+    font-size: 12px;
+    color: #d6d6d6;
+    
+}
+.footer a:hover{
+    font-size: 12px;
+    color: #000000;
+    
+}
