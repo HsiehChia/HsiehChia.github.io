@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.将DOM容器指定宽高 */
+        .box {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1.创建一个DOM容器 -->
+    <div class="box"></div>
+    <ul>
+        <li>title:设置图表标题</li>
+        <li>tooltip:图表提示框组件
+            <ul>trigger:触发方式
+                <li>item:根据图形触发</li>
+                <li>axis:坐标轴触发</li>
+                <li>none:什么都不触发</li>
+            </ul>
+        </li>
+        <li>legend:图例组件</li>
+        <li>toolbox:工具箱组件，可以保存图片等功能</li>
+        <li>grid:网格配置，可以控制图标大小
+            <ul>
+                <li>left:'3%'</li>
+                <li>right:'4%'</li>
+                <li>bottom:'3%'</li>
+                <li>containLabel:true显示刻度</li>
+            </ul>
+        </li>
+        <li>直角坐标系
+            <ul>xAxis:设置x轴；yAxis:设置y轴
+                <li>type:categrory类目轴</li>
+                <li>type:value值</li>
+                <li>boundaryGap:false线条和坐标轴没有空隙</li>
+                <li>data:[]值</li>
+            </ul>
+        </li>
+        <li>series:[]系列图表配置，他决定了显示哪种类型的图表
+            <ul>
+                <li>name:名字</li>
+                <li>type:图表类型</li>
+                <li>stack:数据堆叠</li>
+                <li>data:[]数据</li>
+                <li>series有name值，那么legend内容可以删掉</li>
+            </ul>
+        </li>
+        <li>color:[]设置线条颜色</li>
+    </ul>
+    <!-- 2.引入Echart -->
+    <script src="js/echarts.min.js"></script>
+    <script>
+        // 3.初始化实例对象 echart.init(dom容器);
+        var myChart = echarts.init(document.querySelector(".box"));
+        // 4.指定配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+        // 把配置项给实例对象
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
