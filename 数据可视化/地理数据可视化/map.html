@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地理数据可视化</title>
+       <style>
+        .view {
+            margin: 0 auto;
+            width: 900px;
+            height: 600px;
+            border: 1px solid #000;
+        }
+    </style>
+   </head>
+   <body>
+        <div class="view" id="viewmap"></div>
+        <script type="text/javascript" src="js/echarts.min.js"></script>
+        <script type="text/javascript" src="js/echarts-gl.min.js"></script>
+       <script type="text/javascript" src="js/jquery.js"></script>
+       <script type="text/javascript">
+        // 1.实例化对象
+        var myChart = echarts.init(document.getElementById('viewmap'));
+        // 2.指定配置项和数据
+        jsonData={
+            "data" : [
+                ["亚拉巴马-AL", "9", "Trump", -2],
+                ["阿拉斯加-AK", "3", "Trump", -2],
+                ["阿肯色-AR", "6", "Trump", -1],
+                ["亚利桑那-AZ", "11", "Trump", -2],
+                ["加利福尼亚-CA", "55", "Clinton", 2],
+                ["科罗拉多-CO", "9", "Clinton", 0],
+                ["康涅狄格-CT", "7", "Clinton", 2],
+                ["特拉华-DE", "3", "Clinton", 2],
+                ["佛罗里达-FL", "29", "Trump", 0],
+                ["佐治亚-GA", "16", "Trump", -1],
+                ["夏威夷-HI", "4", "Clinton", 2],
+                ["爱达荷-ID", "4", "Trump", -2],
+                ["伊利诺伊-IL", "20", "Clinton", 2],
+                ["印第安纳-IN", "11", "Trump", -1],
+                ["艾奥瓦-IA", "6", "Trump", 1],
+                ["堪萨斯-KS", "6", "Trump", -2],
+                ["肯塔基-KY", "8", "Trump", -2],
+                ["路易斯安那-LA", "8", "Trump", -1],
+                ["缅因-ME", "4", "Clinton", 1],
+                ["马里兰-MD", "10", "Clinton", 2],
+                ["马萨诸塞-MA", "11", "Clinton", 2],
+                ["密歇根-MI", "16", "Trump", 2],
+                ["明尼苏达-MN", "10", "Clinton", 1],
+                ["密西西比-MS", "6", "Trump", -2],
+                ["密苏里-MO", "10", "Trump", 0],
+                ["蒙大拿-MT", "3", "Trump", -1],
+                ["内布拉斯加-NE", "5", "Trump", -2],
+                ["内华达-NV", "6", "Clinton", 0],
+                ["新罕布什尔-NH", "4", "Clinton", 1],
+                ["新泽西-NJ", "14", "Clinton", 2],
+                ["新墨西哥-NM", "5", "Clinton", 1],
+                ["纽约-NY", "29", "Clinton", 2],
+                ["北卡罗来纳-NC", "15", "Trump", 0],
+                ["北达科他-ND", "3", "Trump", -1],
+                ["俄亥俄-OH", "18", "Trump", 0],
+                ["俄克拉何马-OK", "7", "Trump", -2],
+                ["俄勒冈-OR", "7", "Clinton", 2],
+                ["宾夕法尼亚-PA", "20", "Trump", 1],
+                ["罗德岛-RI", "4", "Clinton", 2],
+                ["南卡罗来纳-SC", "9", "Trump", -2],
+                ["南达科他-SD", "3", "Trump", -2],
+                ["田纳西-TN", "11", "Trump", -2],
+                ["德克萨斯-TX", "38", "Trump", -2],
+                ["犹他-UT", "6", "Trump", -2],
+                ["佛蒙特-VT", "3", "Clinton", 2],
+                ["弗吉尼亚-VA", "13", "Clinton", 1],
+                ["华盛顿-WA", "12", "Clinton", 1],
+                ["西弗吉尼亚-WV", "5", "Trump", -1],
+                ["威斯康星-WI", "10", "Trump", 1],
+                ["怀俄明-WY", "3", "Trump", -2],
+                ["哥伦比亚-DC", "3", "Clinton", 2]
+            ]
+        }
+
+        myChart.showLoading();
+        createCharts(jsonData);
+        function createCharts(data){
+            data = data.data;
+            cityData = [
+                            {name: '亚拉巴马-AL', value: 4822023},
+                            {name: '阿拉斯加-AK', value: 731449},
+                            {name: '亚利桑那-AZ', value: 6553255},
+                            {name: '阿肯色-AR', value: 2949131},
+                            {name: '加利福尼亚-CA', value: 38041430},
+                            {name: '科罗拉多-CO', value: 5187582},
+                            {name: '康涅狄格-CT', value: 3590347},
+                            {name: '特拉华-DE', value: 917092},
+                            {name: '哥伦比亚-DC', value: 632323},
+                            {name: '佛罗里达-FL', value: 19317568},
+                            {name: '佐治亚-GA', value: 9919945},
+                            {name: '夏威夷-HI', value: 1392313},
+                            {name: '爱达荷-ID', value: 1595728},
+                            {name: '伊利诺伊-IL', value: 12875255},
+                            {name: '印第安纳-IN', value: 6537334},
+                            {name: '艾奥瓦-IA', value: 3074186},
+                            {name: '堪萨斯-KS', value: 2885905},
+                            {name: '肯塔基-KY', value: 4380415},
+                            {name: '路易斯安那-LA', value: 4601893},
+                            {name: '缅因-ME', value: 1329192},
+                            {name: '马里兰-MD', value: 5884563},
+                            {name: '马萨诸塞-MA', value: 6646144},
+                            {name: '密歇根-MI', value: 9883360},
+                            {name: '明尼苏达-MN', value: 5379139},
+                            {name: '密西西比-MS', value: 2984926},
+                            {name: '密苏里-MO', value: 6021988},
+                            {name: '蒙大拿-MT', value: 1005141},
+                            {name: '内布拉斯加-NE', value: 1855525},
+                            {name: '内华达-NV', value: 2758931},
+                            {name: '新罕布什尔-NH', value: 1320718},
+                            {name: '新泽西-NJ', value: 8864590},
+                            {name: '新墨西哥-NM', value: 2085538},
+                            {name: '纽约-NY', value: 19570261},
+                            {name: '北卡罗来纳-NC', value: 9752073},
+                            {name: '北达科他-ND', value: 699628},
+                            {name: '俄亥俄-OH', value: 11544225},
+                            {name: '俄克拉何马-OK', value: 3814820},
+                            {name: '俄勒冈-OR', value: 3899353},
+                            {name: '宾夕法尼亚-PA', value: 12763536},
+                            {name: '罗德岛-RI', value: 1050292},
+                            {name: '南卡罗来纳-SC', value: 4723723},
+                            {name: '南达科他-SD', value: 833354},
+                            {name: '田纳西-TN', value: 6456243},
+                            {name: '德克萨斯-TX', value: 26059203},
+                            {name: '犹他-UT', value: 2855287},
+                            {name: '佛蒙特-VT', value: 626011},
+                            {name: '弗吉尼亚-VA', value: 8185867},
+                            {name: '华盛顿-WA', value: 6897012},
+                            {name: '西弗吉尼亚-WV', value: 1855413},
+                            {name: '威斯康星-WI', value: 5726398},
+                            {name: '怀俄明-WY', value: 576412}
+                            // {name: 'Puerto Rico', value: 3667084}
+                        ]
+            for(i = 0;i<cityData.length;i++){
+                // console.log(data[i]);
+                cityData[i].value = data[i][3];
+                cityData[i].tickets = data[i][1];
+                cityData[i].president = data[i][2];
+            }
+            $.get('json/USA.json', function (usaJson) {
+            myChart.hideLoading();
+
+            echarts.registerMap('USA', usaJson, {
+                Alaska: {              // 把阿拉斯加移到美国主大陆左下方
+                    left: -131,
+                    top: 25,
+                    width: 15
+                },
+                Hawaii: {
+                    left: -110,        // 夏威夷
+                    top: 28,
+                    width: 5
+                },
+                'Puerto Rico': {       // 波多黎各
+                    left: -76,
+                    top: 26,
+                    width: 2
+                }
+            });
+            option = {
+                title: {
+                    text: '美国大选投票情况',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    showDelay: 0,
+                    transitionDuration: 0.2,
+                    formatter: function (params) {
+                        console.log(params);
+                        // var value = (params.value + '').split('.');
+                        // value = value[0].replace(/(\d{1,3})(?=(?:\d{3})+(?!\d))/g, '$1,');
+                        var party = ""
+                        if(params.value == -2) {
+                            party = "坚定的共和党";
+                        }else if(params.value == -1) {
+                            party = "倾向共和党";
+                        }else if(params.value == 0) {
+                            party = "摇摆不定";
+                        }else if(params.value == 1){
+                            party = "倾向民主党";
+                        }else if(params.value == 2){
+                            party = "坚定的民主党";
+                        }
+                        return params.seriesName + '<br/>' + params.name + '总票数: ' + params.data.tickets+ '<br/>'+"该州投给了： "+params.data.president+"<br/>"+"该州党派属于： "+party;
+                    }
+                },
+                visualMap: {
+                    left: 'right',
+                    min: -2,
+                    max: 2,
+                    itemWidth: 15,
+                    itemHeight: 500,
+                    inRange: {
+                        color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+                    },
+                    text: ['Trump', 'Clinton'],           // 文本，默认为数值文本
+                    calculable: true
+                },
+                series: [
+                    {
+                        name: '投票分布',
+                        type: 'map',
+                        roam: true,
+                        map: 'USA',
+                        itemStyle:{
+                            emphasis:{label:{show:true}}
+                        },
+                        // 文本位置修正
+                        textFixed: {
+                            Alaska: [20, -20]
+                        },
+                        data:cityData,
+                        nameMap: {
+                            'Alabama':"亚拉巴马-AL",
+                            'Alaska':"阿拉斯加-AK",
+                            'Arizona':"亚利桑那-AZ",
+                            'Arkansas':"阿肯色-AR",
+                            'California':"加利福尼亚-CA",
+                            'Colorado':"科罗拉多-CO",
+                            'Connecticut':"康涅狄格-CT",
+                            'Delaware':"特拉华-DE",
+                            'District of Columbia':"哥伦比亚-DC",
+                            'Florida':"佛罗里达-FL",
+                            'Georgia':"佐治亚-GA",
+                            'Hawaii':"夏威夷-HI",
+                            'Idaho':"爱达荷-ID",
+                            'Illinois':"伊利诺伊-IL",
+                            'Indiana':"印第安纳-IN",
+                            'Iowa':"艾奥瓦-IA",
+                            'Kansas':"堪萨斯-KS",
+                            'Kentucky':"肯塔基-KY",
+                            'Louisiana':"路易斯安那-LA",
+                            'Maine':"缅因-ME",
+                            'Maryland':"马里兰-MD",
+                            'Massachusetts':"马萨诸塞-MA",
+                            'Michigan':"密歇根-MI",
+                            'Minnesota':"明尼苏达-MN",
+                            'Mississippi':"密西西比-MS",
+                            'Missouri':"密苏里-MO",
+                            'Montana':"蒙大拿-MT",
+                            'Nebraska':"内布拉斯加-NE",
+                            'Nevada':"内华达-NV",
+                            'New Hampshire':"新罕布什尔-NH",
+                            'New Jersey':"新泽西-NJ",
+                            'New Mexico':"新墨西哥-NM",
+                            'New York':"纽约-NY",
+                            'North Carolina':"北卡罗来纳-NC",
+                            'North Dakota':"北达科他-ND",
+                            'Ohio':"俄亥俄-OH",
+                            'Oklahoma':"俄克拉何马-OK",
+                            'Oregon':"俄勒冈-OR",
+                            'Pennsylvania':"宾夕法尼亚-PA",
+                            'Rhode Island':"罗德岛-RI",
+                            'South Carolina':"南卡罗来纳-SC",
+                            'South Dakota':"南达科他-SD",
+                            'Tennessee':"田纳西-TN",
+                            'Texas':"德克萨斯-TX",
+                            'Utah':"犹他-UT",
+                            'Vermont':"佛蒙特-VT",
+                            'Virginia':"弗吉尼亚-VA",
+                            'Washington':"华盛顿-WA",
+                            'West Virginia':"西弗吉尼亚-WV",
+                            'Wisconsin':"威斯康星-WI",
+                            'Wyoming':"怀俄明-WY"
+                        }
+                    }
+                ]
+            };
+            // 3.吧配置项给实例对象
+            myChart.setOption(option);
+        });
+        if (option && typeof option === "object") {
+            myChart.setOption(option, true);
+        }
+        // 4.图标大小与屏幕自适应
+         window.addEventListener('resize', function() {
+                myChart.resize();
+        });
+    }
+    </script>
+   </body>
+</html>
