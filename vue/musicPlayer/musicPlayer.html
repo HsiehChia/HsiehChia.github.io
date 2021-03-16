@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Document</title>
+    <style>
+        .music_list span {
+            float: right;
+            height: 26px;
+            line-height: 26px;
+            width: 36px;
+            border-radius: 36px;
+            background-color: rgba(255, 255, 255, .4);
+            text-align: center;
+            font-size: 12px;
+            color: crimson;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        .music_list span:hover {
+            cursor: pointer;
+        }
+        
+        .movie {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to top left, #ffd90096, #20b2ab9c);
+        }
+        
+        .playMovie {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 500px;
+            margin: 20px auto;
+            object-fit: fill;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 浏览器主体 -->
+    <div class="contain" id="player">
+        <!-- 1.顶部 -->
+        <div class="header">
+            <!-- 1.1顶部左侧logo -->
+            <div class="logo">点歌</div>
+            <!-- 1.2搜索框 -->
+            <input class="search" type="text" placeholder="搜索你喜欢的歌" v-model="query" @keyup.enter="searchMusic">
+            <button class="searchBtn" @click="searchMusic">搜索</button>
+        </div>
+        <!-- 2.中间主体 -->
+        <div class="section">
+            <!-- 2.1搜索歌曲结果列表 -->
+            <ul class="music_list ">
+                <li v-for="(item,index) in musicList">
+                    <a href="javascript:;" @click="playMusic(item.id)">{{index+1}}.{{item.name}}</a>
+                    <span v-if="item.mvid!=0" @click="playMovie(item.mvid)">mv</span>
+                </li>
+            </ul>
+
+            <!-- 2.2歌曲封面部分 -->
+            <div class="banner" :class="{playing:isPlaying}">
+                <!-- <div class="banner playing"> -->
+                <img src="./img/bg.jpg">
+                <img :src="picUrl" alt="">
+            </div>
+            <!-- 2.3评论部分 -->
+            <div class="common">
+                <h4>热门留言</h4>
+                <ul class="msg">
+                    <li v-for="(item,index) in hotComments">
+                        <table>
+                            <tr>
+                                <td class="profile" rowspan="2"><img :src="item.user.avatarUrl" class="profile"></td>
+                                <td>
+                                    <h5>{{item.user.nickname}}</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>{{item.content}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 3.底部 -->
+        <div class="footer">
+            <audio :src="musicUrl" @play="playAudio" @pause="pauseAudio" autoplay="autoplay" controls="controls" loop="loop" class="playAudio"></audio>
+        </div>
+        <!-- 4.movie遮罩 -->
+        <div class="movie" v-show="isShow" @click="hideMask">
+            <video :src="movieUrl" autoplay="autoplay" controls="controls" loop="loop" class="playMovie"></video>
+        </div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
